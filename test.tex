@@ -11,6 +11,8 @@
 \usepackage{xcolor}
 \usepackage{pagecolor}
 \usepackage{afterpage}
+\usepackage{listings}
+%\usepackage{minted}
 \usepackage{microtype}
 
 \newcommand*{\plogo}{\fbox{$\mathcal{PL}$}}
@@ -30,7 +32,7 @@
 \definecolor{ibm-blue}{HTML}{1F70C1}
 
 \begin{document}
-\pagestyle{empty}
+\thispagestyle{empty}
 \newpagecolor{ibm-blue}\afterpage{\restorepagecolor}
 \color{white}
 \titleTH
@@ -39,9 +41,12 @@
 
 \frontmatter
 \tableofcontents*
+\clearpage
+\listoffigures*
+\clearpage
+\listoftables*
 
 \mainmatter
-
 
 \emph{(Copy paste of the text on the website for demonstration purposes)}
 
@@ -53,7 +58,7 @@ It is aimed at helping owners of both the original keyboards as well as the repr
 
 It will help provide buckling spring owners (everyone from beginners to advanced users) with a central place to learn key re-seating, disassembly, spring replacement, changing the layout, etc.
 
-\section{Introduction to Model F Keyboards and Statement of Brand New Model F Keyboards Project Philosophy: Full user control of product maintenance and repairs}
+\chapter[Introduction to Model F Keyboards]{Introduction to Model F Keyboards and Statement of Brand New Model F Keyboards Project Philosophy: Full user control of product maintenance and repairs}
 
     Check out Chyrosran22’s excellent Model F overview video:  \url{https://www.youtube.com/watch?v=y9Jds326gks}
 
@@ -66,6 +71,74 @@ It will help provide buckling spring owners (everyone from beginners to advanced
     There are definitely markets for hardware with service contracts. Not sure about a market for a +\$100 more costly keyboard with full maintenance and technical support though. IBM’s 1980s price guides mentioned they would require charging banking customers a minimum of about \$100 per year (not adjusted for inflation) for each original Model F keyboard in maintenance costs as part of a service contract. However, if I had to hire staff to deal with ``free'' returns, more personalized technical support / phone support, and doing even the most minor repairs (re-seating keys, replacing springs and barrels, changing the USB cable, etc.), each keyboard would cost a lot more because of overhead costs, and these keyboards are already not inexpensive to begin with. And it would slow me down even further mailing out these great keyboards. I believe that this direct to consumer, community type project is the best way to bring the Model F to as many people as possible and at the lowest possible cost.
 
     The best way you can help this project:  If you like using Model F and Model M buckling spring keyboards, the best way to help the project is to tell other ``tech-minded'' people you know about the project. That would be greatly appreciated, and only if you don’t mind. And please do share some photos of your newly set up Model F Keyboard on the Deskthority and geekhack project threads if you’d like!  The xwhatsit and QMK firmware options are both very powerful and you can do a lot of interesting things with them to customize your keyboard (check out the xwhatsit manual on \url{www.ModelFKeyboards.com/code}).
+    
+\chapter{Initial setup of your New Model F Keyboard}
+
+\begin{enumerate}
+
+\item \textbf{Safety precautions:}  Always consult the booklet included with your new Model F keyboard for safety precautions and other important information.  Severe harm or even death can occur with any product if safety precautions are not followed.
+\item View the controller manual and access links to the GUI, firmware files, layout files, and source code here:  www.ModelFKeyboards.com/code
+\item Proper key installation involves holding the keyboard vertically, space bar side up.  See my key installation video here:  \url{https://www.youtube.com/watch?v=xEm2mewsmrA}
+\item Don’t let the keyboard rest horizontally until each key has been fully pressed in. This video does not show the additional quality control / keyboard adjustment steps to eliminate buzzing/bad springs, configure the software, etc. – check the next YouTube link below for that video.
+\item You may notice some barrels without any flippers and springs.  This is intentional!  The extra wide keys have stabilizer inserts which go inside these barrels.
+\item Do not connect the keyboard to a computer until you have installed the keys.  Per a DT user:  “When there are no keycaps, all the flippers will rest on the pcb giving you pressed keys all over. If you are to test the board without caps, you could free the flippers with resting the keyboard vertically, spacebar side up.”
+\item ISO Enter – vertical stabilizer (black stabilizer) must be inserted upside down! 
+\item Horizontal inserts (white stabilizers) are used for all of the 2U and wider keys.  They are installed inside the barrels with the “ears” on the left and right sides.  Use only the horizontal stabilizers for all new Model F keyboards’ 2U and wider keys, except for the ISO Enter key.  (Also the space bar does not use stabilizer inserts)
+\item After installing your keys, but before you plug in your keyboard for the first time:
+\begin{itemize}
+\item         Test each key to make sure it buckles properly (follow the below video to learn to determine what sounds good vs. what is a potential issue)
+\item         Remove and re-seat any loose/non-working keys.  Regarding re-seating springs: in nearly all cases you do not need to take apart the keyboard to fix keys that do not click or spend a few minutes pressing a troublesome key – I have posted some videos on this thread as well as on the web site blog detailing a quick spring adjustment and key re-seating guide that requires less than one minute per key to do. Very important to reattach the key as shown in these videos, with the keyboard positioned as shown in the videos (vertically, with the space bar row up). The goal is to have the spring touch the 12 o’clock position of the barrel when the keyboard is positioned that way. If the spring end is not positioned at 12 o’clock (per the video) and the spring does not touch the barrel, buckling error is more likely to occur.
+\item         See this video on how to remove and re-seat a key using key puller, paper clip, etc. and fix a buzzing spring. Tilting the keyboard so the spring almost touches the top of the barrel (12 o’clock position) is often best. \url{https://www.youtube.com/watch?v=Evn6vmrfD4M}
+\end{itemize}
+\item     Importance of testing the Model F after you get it but before you start using it on your main computer: Even though there is strong protective packaging, Model F springs are often dislodged during shipping which can result in a bad click sound or no click at all, and keys (and sometimes springs) may need to be reseated. I have found that carefully removing and flipping the spring upside down can fix most spring issues, and replacing the spring with another spring is a last resort. Keys don’t actuate/keys are not recognized in xwhatsit program when pressed, tizzing spring-removing and replacing-using tweezers, toothpick.
+\item     Break in period:  there is definitely a break in period with Model F keyboards – especially with the springs.  There’s a good chance that the springs will sound even better over time with usage!
+\item     Space bar removal, optimization, and re-seating:
+\begin{itemize}
+\item         I do try to install the space bar for all those who ordered one as part of a key set, as I want it to sound right for everyone. I have configured so many that it’s quick for me to get it right. One can possibly damage the space bar as the little tabs can break off if the space bar is removed incorrectly.
+
+\item         The metallic twang / reverberation / ringing is definitely the sound I am going for (!) but there are ways of reducing it. The bigger the thud of the space bar, the better in my view! In addition to the mods you referenced (quotation snippet copied below), one can also carefully push down the metal space bar tabs for a reduction in rattling sound. Always push the side of the space bar whose tab you want to adjust towards the metal tab in order to get that wire nearly touching the back of the metal tab before you push down that tab, then repeat for the other side. (I do this as I install each space bar even for the “separate shipping of keys” keyboards going out). Pushed down even more and it may make the space bar require “heavier” force to actuate (push down too much and the space bar will get stuck frequently!), though this may result in some damage when trying to remove or adjust the space bar.  “Applying a single layer of electrical tapewhere the stabilizer met the clips, as suggested by dotcom, helped immensely. I haven’t tried clickclack’s spacebar heatshrink mod but might do that someday. As it is, the spacebar is now the best sounding key on the keyboard.”
+\item         Test with 1U key to make sure spring is good. Metal tab pressing down, scotch tape or heat shrink tubing application to reduce rattle if preferred. Please carefully remove and reseat the space bar. This key’s tabs are easily broken so please be careful. I need to make a video on doing all this when I have more time. Before reseating the space bar, install a 1U key in the space bar barrel with flipper/spring and see if it actuates and registers in xwhatsit. When installing the space bar back, follow the most recent YouTube video I posted for proper orientation of the keyboard. If space bar gets stuck, push down a little on the metal tabs which may have been pushed up a little too much when removing the space bar. Don’t push down too much or else the space bar will not operate properly (in that case you’d have to remove the space bar again and re-seat).
+\item         If your space bar lags a bit, just need to loosen the clips a touch with a screw driver.  I believe that the nice space bar thud sound (and minimizing rattle) is highly contingent on the proper placement of the metal tabs – bending the stabilizer wire slightly away from the metal tab ends results in a more rattly space bar with a lighter actuation force that some people prefer (more like many original F122’s), while pushing too much towards the metal tab ends can slightly increase actuation force for the space bar. Optimally the back of the metal tab should touch the space bar stabilizer wire. Excellent space bar stability and sound when the wire is directly against the back of the metal tab.
+\item         Regarding squeaky space bars: that is nearly always the case of adjusting/slightly stretching or replacing the spring rather than due to the space bar stabilizer wire. This is something I test on all keyboards as part of QC but I hope to improve on this. On a similar note, especially with rattling space bar wires as well as to prevent the space bar from getting stuck on the end of the metal tab, I recommend pressing down on the metal tabs if you re-seat the space bar (after confirming no squeak and proper buckling when pressing the space bar). I do this as needed during QC. With the final production round, the metal tabs will be adjusted a bit to minimize the need to get them out of the way manually.  A “squeaking” or stuck space bar is often due to a bad spring combined with the need to slightly adjust the bend of the space bar stabilizer wire – you can replace the spring without opening up the keyboard by using tweezers – will post a video later. Space bar seating issues: Likely the space bar tabs have been pushed down too much, or not enough. or the space bar wire is bent out of shape (should be precisely rectangular). Also the space bar should be installed as shown in the videos on the project blog (not entirely vertically or horizontally – I prefer a 45 degree angle with the space bar row at the highest point of altitude).  
+\item         Some prefer putting a clear plastic tube where the metal stabilizer wire touches the metal tabs.
+\item         To quote a DT member:  “Regarding spacebar rattle on the F62, I did several things, and the rattle has disappeared. Not sure which of these items worked or if it is the combination:
+\begin{itemize}
+\item             Put strips of self-adhesive rubber inside the spacebar. I used strips intended as non-skid feet for the undersides of various things, such as keyboards.
+\item             Applied a dab of silicone-base grease to the spacebar stabilizer clips on the top plate of the keyboard and on the spacebar itself.
+\item             Put strips of ultra-thin self-adhesive foam on the top plate of the keyboard where the spacebar stabilzer wire hits the top plate. I used Poron ThinStik polyurethane foam.
+\item             Put an O-ring at the base of the two spacebar barrels. The dimensions of the O-rings are 16mm OD, 12mm ID, 2mm thickness.”
+\end{itemize}
+\end{itemize}
+\item     Videos and tutorials – see the project YouTube channel \url{https://www.youtube.com/channel/UCsi-1PcnCT3hw_RwcFzBnuw}
+        Model F Quality Control Secrets YouTube video (includes instructions on how to fix bad sounding / non-working keys):  \url{https://www.youtube.com/watch?v=Evn6vmrfD4M}
+        Model F Keyboard NEW Kishsaver vs. OLD sound comparison high quality review \url{https://www.youtube.com/watch?v=uRlw7loUw7I}
+        Brand New Model F Instructional Video 2: Opening up the keyboard inner assembly \url{https://www.youtube.com/watch?v=xaa23N9JDBs}
+        Keyboard disassembly note:  if you are not applying enough pressure on each screw, it is possible to strip the screws. With the correct driver and pressure, the screws should not be an issue.  Use the proper PH1 head for the ultra compact cases. If driver is not a tight fit, do not use the driver and purchase the correct driver-otherwise the screw will strip and you may not be able to remove the case except by drilling into the screw.
+        
+\end{enumerate}        
+        
+\chapter{test}
+
+% set the default code style
+\lstset{
+    frame=tb, % draw a frame at the top and bottom of the code block
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{red} % string color
+}
+
+\begin{lstlisting}[language=C++, caption={C++ file}]
+#pragma once
+#define TAPPING_TERM 200
+#define TAPPING_TOGGLE 2
+#define SOLENOID_MIN_DWELL 40
+#define SOLENOID_MAX_DWELL 80
+\end{lstlisting}
+
+
 
 \end{document}
 

@@ -5,7 +5,12 @@
 \usepackage{hyperref}
 \usepackage{fontspec}
 \usepackage[sfdefault]{plex-sans}
+\usepackage{plex-serif}
+\usepackage{plex-mono}
 \usepackage{unicode-math}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+\usepackage{afterpage}
 \usepackage{microtype}
 
 \newcommand*{\plogo}{\fbox{$\mathcal{PL}$}}
@@ -22,10 +27,21 @@
 \vspace*{3\baselineskip}
 \endgroup}
 
+\definecolor{ibm-blue}{HTML}{1F70C1}
+
 \begin{document}
 \pagestyle{empty}
+\newpagecolor{ibm-blue}\afterpage{\restorepagecolor}
+\color{white}
 \titleTH
-\clearpage
+\cleardoublepage
+\color{black}
+
+\frontmatter
+\tableofcontents*
+
+\mainmatter
+
 
 \emph{(Copy paste of the text on the website for demonstration purposes)}
 

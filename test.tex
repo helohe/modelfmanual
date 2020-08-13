@@ -1,7 +1,7 @@
 % !TeX program = lualatex
 
 \documentclass[a5paper, twoside]{memoir}
-
+\usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{fontspec}
 \usepackage[sfdefault]{plex-sans}
@@ -18,11 +18,16 @@
 \newcommand*{\plogo}{\fbox{$\mathcal{PL}$}}
 
 \newcommand*{\titleTH}{\begingroup % T&H Typography
-\raggedleft
-\vspace*{\baselineskip}
-{\Large The Author}\\[0.167\textheight]
-{\bfseries Manual of the}\\[\baselineskip]
-{{\Huge F62/F66 Keyboard}}\\[\baselineskip]
+\raggedleft\raggedbottom
+%\vspace*{\baselineskip}
+\vspace*{-2cm}
+{\rmfamily\textit{\Large\hfill
+\begin{tabular}{@{}l@{}}
+ Personal Computer\\Hardware Reference\\Library
+\end{tabular}}}\\[0.5\textheight]
+\noindent\rule{\textwidth}{0.4pt}\\
+{\bfseries F62/F66 Keyboard}\\[\baselineskip]
+\flushleft{{\rmfamily\HUGE Technical\\Reference}}\\[\baselineskip]
 {\small With 123 illustrations}\par
 \vfill
 %{\Large The Publisher \plogo}\par
